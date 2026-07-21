@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/entregasFragment">
+
+    <!-- Pantalla 1: Entregas (Destino Inicial por defecto) -->
+    <fragment
+        android:id="@+id/entregasFragment"
+        android:name="com.example.myapplication.ui.EntregasFragment"
+        android:label="Entregas"
+        tools:layout="@layout/fragment_entregas" />
+
+    <!-- Pantalla 2: Temperaturas -->
+    <fragment
+        android:id="@+id/temperaturasFragment"
+        android:name="com.example.myapplication.ui.TemperaturasFragment"
+        android:label="Temperaturas"
+        tools:layout="@layout/fragment_temperaturas" />
+
+    <!-- Pantalla 3: Ajustes -->
+    <fragment
+        android:id="@+id/ajustesFragment"
+        android:name="com.example.myapplication.ui.AjustesFragment"
+        android:label="Ajustes"
+        tools:layout="@layout/fragment_ajustes" />
+
+</navigation>

@@ -20,7 +20,7 @@
         android:orientation="vertical"
         android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/main_content_container"
+        app:layout_constraintEnd_toStartOf="@+id/nav_host_fragment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.25">
@@ -112,35 +112,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- ===================================================================== -->
-    <!-- ÁREA DE CONTENIDO PRINCIPAL (Aproximadamente 75% del ancho de pantalla) -->
+    <!-- ÁREA DE CONTENIDO PRINCIPAL - NAV HOST FRAGMENT (75% del ancho) -->
     <!-- ===================================================================== -->
-    <FrameLayout
-        android:id="@+id/main_content_container"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/bg_light"
-        android:padding="16dp"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/sidebar_divider"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.75">
-
-        <!-- 
-            NOTA DE CONFIGURACIÓN:
-            Este RecyclerView (rv_main_dashboard) se configurará más adelante 
-            en el código Kotlin utilizando un GridLayoutManager (por ejemplo: 
-            rv_main_dashboard.layoutManager = GridLayoutManager(this, 2 o 3)) 
-            para organizar las tarjetas de control de entregas y temperaturas en cuadrícula.
-        -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_main_dashboard"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:padding="8dp"
-            tools:listitem="@android:layout/simple_list_item_2" />
-
-    </FrameLayout>
+        app:layout_constraintWidth_percent="0.75" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
