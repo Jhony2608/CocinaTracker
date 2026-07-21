@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Control APPCC</string>
+    <string name="nav_title">Seguridad Alimentaria</string>
+    <string name="nav_deliveries">Entregas</string>
+    <string name="nav_temperatures">Temperaturas</string>
+    <string name="nav_settings">Ajustes</string>
+    <string name="dashboard_header">Panel Principal de Control</string>
 </resources>

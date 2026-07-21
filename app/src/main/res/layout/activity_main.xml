@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_light"
+    tools:ignore="HardcodedText">
+
+    <!-- ================================================================= -->
+    <!-- MENÚ LATERAL IZQUIERDO (Aproximadamente 25% del ancho de pantalla) -->
+    <!-- ================================================================= -->
+    <LinearLayout
+        android:id="@+id/sidebar_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/sidebar_bg"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/main_content_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.25">
+
+        <!-- Header / Título de la App -->
+        <TextView
+            android:id="@+id/tv_app_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/app_name"
+            android:textColor="@color/primary_blue"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Subtítulo / Módulo -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/nav_title"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:letterSpacing="0.05" />
+
+        <!-- Botón 1: Entregas -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_nav_deliveries"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="@color/primary_blue"
+            android:gravity="start|center_vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="@string/nav_deliveries"
+            android:textColor="@color/text_on_primary"
+            android:textSize="16sp"
+            app:cornerRadius="12dp"
+            app:iconPadding="12dp" />
+
+        <!-- Botón 2: Temperaturas -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_nav_temperatures"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="start|center_vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="@string/nav_temperatures"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            app:strokeColor="@color/divider_color"
+            app:strokeWidth="1dp"
+            app:cornerRadius="12dp" />
+
+        <!-- Botón 3: Ajustes -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_nav_settings"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="start|center_vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="@string/nav_settings"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            app:strokeColor="@color/divider_color"
+            app:strokeWidth="1dp"
+            app:cornerRadius="12dp" />
+
+    </LinearLayout>
+
+    <!-- Divider vertical separador -->
+    <View
+        android:id="@+id/sidebar_divider"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="@color/divider_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sidebar_container"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ===================================================================== -->
+    <!-- ÁREA DE CONTENIDO PRINCIPAL (Aproximadamente 75% del ancho de pantalla) -->
+    <!-- ===================================================================== -->
+    <FrameLayout
+        android:id="@+id/main_content_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/bg_light"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sidebar_divider"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.75">
+
+        <!-- 
+            NOTA DE CONFIGURACIÓN:
+            Este RecyclerView (rv_main_dashboard) se configurará más adelante 
+            en el código Kotlin utilizando un GridLayoutManager (por ejemplo: 
+            rv_main_dashboard.layoutManager = GridLayoutManager(this, 2 o 3)) 
+            para organizar las tarjetas de control de entregas y temperaturas en cuadrícula.
+        -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_main_dashboard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="8dp"
+            tools:listitem="@android:layout/simple_list_item_2" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
