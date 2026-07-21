@@ -10,7 +10,20 @@
         android:id="@+id/entregasFragment"
         android:name="com.example.myapplication.ui.EntregasFragment"
         android:label="Entregas"
-        tools:layout="@layout/fragment_entregas" />
+        tools:layout="@layout/fragment_entregas">
+
+        <!-- Acción hacia la pantalla de Nueva Entrega -->
+        <action
+            android:id="@+id/action_entregasFragment_to_nuevaEntregaFragment"
+            app:destination="@id/nuevaEntregaFragment" />
+    </fragment>
+
+    <!-- Pantalla: Nueva Entrega (Formulario Sprint 2) -->
+    <fragment
+        android:id="@+id/nuevaEntregaFragment"
+        android:name="com.example.myapplication.ui.NuevaEntregaFragment"
+        android:label="Nueva Entrega"
+        tools:layout="@layout/fragment_nueva_entrega" />
 
     <!-- Pantalla 2: Temperaturas -->
     <fragment

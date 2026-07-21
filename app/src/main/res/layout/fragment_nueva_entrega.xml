@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_light"
+    android:padding="20dp">
+
+    <!-- Guideline central para división 50% / 50% en Tablet Landscape -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <!-- ===================================================================== -->
+    <!-- MITAD IZQUIERDA (50% Ancho): FORMULARIO DE DATOS DE ENTREGA -->
+    <!-- ===================================================================== -->
+    <TextView
+        android:id="@+id/tv_form_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Registro de Nueva Entrega (APPCC)"
+        android:textColor="@color/primary_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/sv_form_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_form_title">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Campo 1: Proveedor -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_supplier"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Proveedor">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_supplier"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Campo 2: Producto -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_product"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Producto">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Campo 3: Lote -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_lot"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Número de Lote">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_lot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapCharacters"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Campo 4: Fecha de Caducidad -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_expiration_date"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Fecha de Caducidad (DD/MM/AAAA)">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_expiration_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Divider vertical entre mitad izquierda y derecha -->
+    <View
+        android:id="@+id/center_divider"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="@color/divider_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guideline_center"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ===================================================================== -->
+    <!-- MITAD DERECHA (50% Ancho): FOTOGRAFÍA ALBARÁN Y BOTONES -->
+    <!-- ===================================================================== -->
+    <TextView
+        android:id="@+id/tv_photo_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Fotografía del Albarán"
+        android:textColor="@color/text_primary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/center_divider"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Card Contenedor del Placeholder de Foto -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_photo_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        app:cardBackgroundColor="@color/sidebar_bg"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/divider_color"
+        app:strokeWidth="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_take_photo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/center_divider"
+        app:layout_constraintTop_toBottomOf="@+id/tv_photo_title">
+
+        <ImageView
+            android:id="@+id/iv_delivery_photo_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="32dp"
+            android:scaleType="centerInside"
+            android:src="@android:drawable/ic_menu_camera"
+            app:tint="@color/text_secondary"
+            tools:ignore="ContentDescription" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Botón: Tomar Foto del Albarán -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_take_photo"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="12dp"
+        android:text="Tomar Foto del Albarán"
+        android:textColor="@color/primary_blue"
+        android:textSize="15sp"
+        app:cornerRadius="12dp"
+        app:icon="@android:drawable/ic_menu_camera"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
+        app:iconTint="@color/primary_blue"
+        app:strokeColor="@color/primary_blue"
+        app:strokeWidth="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_save_delivery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/center_divider" />
+
+    <!-- Botón Primario: Guardar Entrega -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_save_delivery"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="@color/primary_blue"
+        android:text="Guardar Entrega"
+        android:textColor="@color/text_on_primary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/center_divider" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
